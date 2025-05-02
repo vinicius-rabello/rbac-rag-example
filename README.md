@@ -24,8 +24,8 @@ O sistema:
 1. **Clone o repositório**
 
 ```bash
-git clone https://github.com/seu-usuario/nome-do-projeto.git
-cd nome-do-projeto
+git clone https://github.com/vinicius-rabello/rbac-rag-example.git
+cd rbac-rag-example
 ```
 
 2. **Instale as dependências**
@@ -34,7 +34,7 @@ cd nome-do-projeto
 pip install -r requirements.txt
 ```
 
-3. **Instale Olamma (se ainda não o tiver)**
+3. **Instale Olamma (se ainda não o tiver):**\n
 https://ollama.com/download
 
 4. **Baixe o modelo phi3:mini**
