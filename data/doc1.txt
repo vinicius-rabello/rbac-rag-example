@@ -1,0 +1,2 @@
+'TI'
+A arquitetura central da nossa solução é baseada em um motor SaaS que utiliza aprendizado de máquina e inteligência artificial generativa.

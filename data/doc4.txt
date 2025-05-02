@@ -1,0 +1,2 @@
+'TI'
+A modernização da nossa infraestrutura tecnológica é uma prioridade para este ano. Dada a evolução do software livre, devemos migrar o mais rápido possível.
