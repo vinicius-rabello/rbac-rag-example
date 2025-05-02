@@ -47,7 +47,7 @@ ollama pull phi3:mini
 python main.py
 ```
 
-**🎭 Exemplo de papéis:**  
+## 🎭 Exemplo de papéis: 
 Você pode definir o papel do usuário e a pergunta diretamente no `main.py`:
 
 ```python
