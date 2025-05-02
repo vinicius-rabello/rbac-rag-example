@@ -34,8 +34,8 @@ cd rbac-rag-example
 pip install -r requirements.txt
 ```
 
-3. **Instale Olamma (se ainda não o tiver):**\n
-https://ollama.com/download
+3. **Instale o Ollama (caso ainda não tenha):**  
+🔗 https://ollama.com/download
 
 4. **Baixe o modelo phi3:mini**
 ```bash
@@ -47,10 +47,9 @@ ollama pull phi3:mini
 python main.py
 ```
 
-**Exemplo de papéis:**
-Você pode definir o papel e a query no main.py:
+**🎭 Exemplo de papéis:**  
+Você pode definir o papel do usuário e a pergunta diretamente no `main.py`:
 
 ```python
 user_role = 'TI'  # ou 'Financeiro'
 query = "Qual é a arquitetura principal da nossa solução?"
-```
