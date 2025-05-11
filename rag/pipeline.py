@@ -11,8 +11,8 @@ def run_query(user_role: str, query: str) -> str:
     # Carregar documentos e gerar embeddings
     documents = load_documents()
     embedding_array = generate_embedding_with_roles(documents)
-    embedding_dim = embedding_array.shape[1] - 1
-    index = faiss.IndexFlatL2(embedding_dim + 1)
+    embedding_dim = embedding_array.shape[1]
+    index = faiss.IndexFlatL2(embedding_dim)
     index.add(embedding_array)
     embedding_model = OllamaEmbeddings(model="phi3:mini")
 
