@@ -14,23 +14,23 @@ class MetadataFAISSRetriever:
         query_embedding = self.embedding_model.embed_query(query)
         
         if user_role == "TI":
-            query_role_value = int(format(1, '016b'), 2)
+            query_role_value = 1
         elif user_role == "Financeiro":
-            query_role_value = int(format(2, '016b'), 2)
+            query_role_value = 2
         else:
-            query_role_value = int(format(3, '016b'), 2)
+            query_role_value = 3
         
-        query_vector = np.concatenate([query_embedding, [query_role_value]])
-        distances, indices = self.index.search(query_vector.reshape(1, self.embedding_dim + 1), k=5)
+        query_vector = np.array(query_embedding)
+        distances, indices = self.index.search(query_vector.reshape(1, self.embedding_dim), k=5)
         
         retrieved_docs = []
         for i in indices[0]:
-            if i < len(self.documents):
+            if i < len(self.documents) and i >=0:
                 doc_role_value = 0
                 if "TI" in self.documents[i].metadata["role"]:
-                    doc_role_value += int(format(1, '016b'), 2)
+                    doc_role_value += 1
                 if "Financeiro" in self.documents[i].metadata["role"]:
-                    doc_role_value += int(format(2, '016b'), 2)
+                    doc_role_value += 2
                 if query_role_value & doc_role_value:
                     retrieved_docs.append(self.documents[i])
         

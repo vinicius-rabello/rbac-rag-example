@@ -2,8 +2,8 @@ from rag.document_loader import load_documents
 from rag.embedder import generate_embedding_with_roles
 from rag.retriever import MetadataFAISSRetriever
 from rag.prompt_builder import build_prompt_from_file
-from langchain_community.embeddings import OllamaEmbeddings
-from langchain_community.llms import Ollama
+from langchain_ollama import OllamaEmbeddings
+from langchain_ollama import OllamaLLM
 from langchain.chains.combine_documents import create_stuff_documents_chain
 import faiss
 
@@ -25,7 +25,7 @@ def run_query(user_role: str, query: str) -> str:
     prompt_template = build_prompt_from_file("resources/base_prompt.txt", user_role)
 
     # Rodando o modelo LLM
-    llm = Ollama(model="phi3:mini", temperature=0.0)
+    llm = OllamaLLM(model="phi3:mini", temperature=0.0)
     document_chain = create_stuff_documents_chain(llm, prompt_template)
     response = document_chain.invoke({"input": query, "context": most_relevant_docs})
 
